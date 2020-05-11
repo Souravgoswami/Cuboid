@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+	<div class="navbar-header" data-toggle="tooltip" title="Home" data-placement="bottom">
+		<a class="navbar-brand img-link"><%= image_tag "applications-science.svg", width: "30px" %></a>
+	</div>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<form class="form-inline my-2 my-lg-0 ml-auto">
+			<div class="input-group">
+				<input type="text" id="search" class="form-control input-sm" placeholder="Looking for something?">
+				<div class="input-group-prepend">
+					<button class="btn btn-primary btn-sm" type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+
+		<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item"  data-toggle="tooltip" title="Your Wishlist" data-placement="bottom"><a href="#"><%= image_tag "wishlist.svg", width: "18px" %> Wishlist </a></li>
+			<li class="nav-item"  data-toggle="tooltip" title="Your Cart" data-placement="bottom"><a href="#"><%= image_tag "cart.svg", width: "18px" %> Cart</a></li>
+			<li><a class="break">|</a></li>
+			<li class="nav-item"  data-toggle="tooltip" title="Help" data-placement="bottom"><a href="#"><%= image_tag "account.svg", width: "18px" %></a></li>
+			<li class="nav-item" ><a href="#"><%= image_tag "language.svg", width: "18px" %> <%= image_tag "down.svg", class: "img-invert", width: "6px" %></a></li>
+			<li class="nav-item"><a href="#"><%= image_tag "account.svg", width: "18px" %> <%= image_tag "down.svg", class: "img-invert", width: "6px" %></a></li>
+		</ul>
+	</div>
+</nav>
