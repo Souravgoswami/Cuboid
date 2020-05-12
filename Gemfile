@@ -41,3 +41,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+# Register / login / logout / edit user features
+gem 'devise', '~> 4.7', '>= 4.7.1'
+
+gem 'irb', require: false
+gem 'rdoc', require: false

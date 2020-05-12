@@ -1,19 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<%= stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 	<div class="navbar-header" data-toggle="tooltip" title="Home" data-placement="bottom">
-		<a class="navbar-brand img-link"><%= image_tag "applications-science.svg", width: "30px" %></a>
+		<%= link_to root_path, class: "navbar-brand img-link" do %>
+			<%= image_tag "cuboid.png", width: "30px" %>
+		<% end %>
 	</div>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+		<span class="navbar-toggler-icon "></span>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<form class="form-inline my-2 my-lg-0 ml-auto">
+		<form class="form-inline ml-auto">
 			<div class="input-group">
 				<input type="text" id="search" class="form-control input-sm" placeholder="Looking for something?">
-				<div class="input-group-prepend">
-					<button class="btn btn-primary btn-sm" type="submit">
+				<div class="input-group-append">
+					<button class="btn btn-light btn-sm" type="submit">
 						<i class="fas fa-search"></i>
 					</button>
 				</div>
@@ -21,12 +24,52 @@
 		</form>
 
 		<ul class="nav navbar-nav ml-auto">
-			<li class="nav-item"  data-toggle="tooltip" title="Your Wishlist" data-placement="bottom"><a href="#"><%= image_tag "wishlist.svg", width: "18px" %> Wishlist </a></li>
-			<li class="nav-item"  data-toggle="tooltip" title="Your Cart" data-placement="bottom"><a href="#"><%= image_tag "cart.svg", width: "18px" %> Cart</a></li>
-			<li><a class="break">|</a></li>
-			<li class="nav-item"  data-toggle="tooltip" title="Help" data-placement="bottom"><a href="#"><%= image_tag "account.svg", width: "18px" %></a></li>
-			<li class="nav-item" ><a href="#"><%= image_tag "language.svg", width: "18px" %> <i class="fa fa-caret-down"></i> </a></li>
-			<li class="nav-item"><a href="#"><%= image_tag "account.svg", width: "18px" %> <i class="fa fa-caret-down"></i> </a></li>
+			<li class="nav-item" role="button" data-toggle="tooltip" title="Your Wishlist" data-placement="bottom">
+				<a href="#" class="hover-line nav-link">
+					<%= image_tag "wishlist.svg", width: "18px" %>
+					Wishlist
+				</a>
+			</li>
+
+			<li class="nav-item"  data-toggle="tooltip" title="Your Cart" data-placement="bottom">
+				<a href="#" class="nav-link hover-line">
+					<%= image_tag "cart.svg", width: "18px" %>
+					Cart
+				</a>
+			</li>
+
+			<li><a class="break nav-link">|</a></li>
+
+			<li class="nav-item" data-toggle="tooltip" title="Help" data-placement="bottom">
+				<a href="<%= help_path %>" class="nav-link hover-line">
+					<%= image_tag "account.svg", width: "18px" %>
+					Help
+				</a>
+			</li>
+
+			<li class="nav-item dropdown" >
+				<a class="nav-link dropdown-toggle hover-line" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<%= image_tag "language.svg", width: "18px" %>
+					<%= 'En' %>
+				</a>
+
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+					<a class="dropdown-item" href="#">English</a>
+					<a class="dropdown-item" href="#">Hindi</a>
+					<a class="dropdown-item" href="#">Bengali</a>
+				</div>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle hover-line" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<%= image_tag "account.svg", width: "18px" %>
+					<%= current_user.first_name %>
+				</a>
+
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAccount">
+					<%= login_helper('dropdown-item') %>
+				</div>
+			</li>
 		</ul>
 	</div>
 </nav>

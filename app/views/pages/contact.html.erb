@@ -1,2 +1,383 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+
+<%= stylesheet_link_tag 'contact_page', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<!-- Hero -->
+<section class="hero">
+	<%= image_tag "contact/bg.jpg", class: "img-fluid", alt: "", id: "background" %>
+
+	<div class="hero-text p-5">
+		<h1>Cuboid</h1>
+	</div>
+</section>
+
+<!-- Call to Action -->
+<section class="dark-background py-5">
+	<div class="container">
+		<div class="row py-5">
+			<div class="col-md-8">
+				<h2 class="dark-title">Call to <span>action</span></h2>
+				<p>
+					Cuboid thrives to deliver the best quality good at the cheapest price.
+					We mainly sell computers, laptops, single board computers, and other
+					computer peripherals,.
+				</p>
+			</div>
+
+			<div class="col-md-4 mt-5">
+				<%= link_to(root_path, class: 'btn btn-main') do %>
+					<i class="fa fa-bullhorn"></i>
+					Start Exploring
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Services -->
+<section class="bright services py-5">
+	<div class="container">
+		<h2 class="section-heading">Our <span>Services</span></h2>
+		<div class="row">
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Free Shipping</h3>
+								<p>
+									Here at Cuboid, we provide free shipping for any item costs Rs. 500 or more.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Trusted Return Policy</h3>
+								<p>We have 7 days return policy. If your product isn't working after delivery, return it, and we will replace it with another one!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Cost Effective</h3>
+								<p>We directly purchase products from manufactures at a bulk amount. We can ensure you get the cheapest price.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="col-lg-4">
+				<div class="m-1 shadow">
+					<div class="row">
+						<div class="col-sm-4 service-icon">
+							<div class="d-flex h-100">
+								<div class="mx-auto align-self-center">
+									<i class="fa fa-fire"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8 p-2">
+							<div class="px-2">
+								<h3>Our Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- Call to Action -->
+<section class="dark-background py-1">
+	<div class="container">
+		<div class="slider-item active-slider-item">
+			<div class="row py-2">
+				<div class="col-md-8">
+					<h2 class="dark-title">This is what Trisha <span>Thinks</span></h2>
+					<p>
+						<i class="fa fa-quote-left mr-2"></i>
+						Nulla non lectus sed nisl molestie malesuada. Vivamus ac leo pretium faucibus. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Etiam dictum tincidunt diam. Praesent vitae arcu tempor neque lacinia pretium. Suspendisse nisl.
+						<i class="fa fa-quote-right ml-2"></i>
+					</p>
+				</div>
+
+				<div class="col-md-4">
+					<img_tag "contacts/p1.jpg", alt: "", class: "img-fluid rounded-circle img-thumb">
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-item">
+			<div class="row py-2">
+				<div class="col-md-8">
+						<h2 class="dark-title">This is what Paul <span>Thinks</span></h2>
+					<p>
+						<i class="fa fa-quote-left mr-2"></i>
+						Nulla non lectus sed nisl molestie malesuada. Vivamus ac leo pretium faucibus. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Etiam dictum tincidunt diam. Praesent vitae arcu tempor neque lacinia pretium. Suspendisse nisl.
+						<i class="fa fa-quote-right ml-2"></i>
+					</p>
+				</div>
+
+				<div class="col-md-4">
+					<img alt="" src="assets/img/persons/p2.jpg" class="img-fluid rounded-circle img-thumb">
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-item">
+			<div class="row py-2">
+				<div class="col-md-8">
+						<h2 class="dark-title">This is what Ava <span>Thinks</span></h2>
+					<p>
+						<i class="fa fa-quote-left mr-2"></i>
+						Nulla non lectus sed nisl molestie malesuada. Vivamus ac leo pretium faucibus. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Etiam dictum tincidunt diam. Praesent vitae arcu tempor neque lacinia pretium. Suspendisse nisl.
+						<i class="fa fa-quote-right ml-2"></i>
+					</p>
+				</div>
+
+				<div class="col-md-4">
+					<img alt="" src="assets/img/persons/p3.jpg" class="img-fluid rounded-circle img-thumb">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Team -->
+<section class="team py-5">
+	<div class="container">
+		<h2 class="section-heading">Our <span>Team</span></h2>
+		<div class="row my-3">
+			<div class="col-md-4">
+				<article class="shadow p-2">
+					<div class="team-social-links py-2">
+						<a href="#" class=""><i class="fa fa-facebook"></i></a>
+						<a href="#" class=""><i class="fa fa-twitter"></i></a>
+						<a href="#" class=""><i class="fa fa-youtube"></i></a>
+					</div>
+
+					<img class="img-fluid team-img" alt="" src="assets/img/persons/p01.jpg">
+					<div class="team-content p-3">
+						<h3>John Doe</h3>
+						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+						<a class="btn btn-info" href="#">
+							<i class="mr-4 fa fa-info"></i>
+							Learn More
+						</a>
+					</div>
+
+				</article>
+			</div>
+
+			<div class="col-md-4">
+				<article class="shadow p-2">
+					<div class="team-social-links py-2">
+						<a href="#" class=""><i class="fa fa-facebook"></i></a>
+						<a href="#" class=""><i class="fa fa-twitter"></i></a>
+						<a href="#" class=""><i class="fa fa-youtube"></i></a>
+					</div>
+
+					<img class="img-fluid team-img" alt="" src="assets/img/persons/p02.jpg">
+					<div class="team-content p-3">
+						<h3>John Doe</h3>
+						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+						<a class="btn btn-info" href="#">
+							<i class="mr-4 fa fa-info"></i>
+							Learn More
+						</a>
+					</div>
+
+				</article>
+			</div>
+
+			<div class="col-md-4">
+				<article class="shadow p-2">
+					<div class="team-social-links py-2">
+						<a href="#" class=""><i class="fa fa-facebook"></i></a>
+						<a href="#" class=""><i class="fa fa-twitter"></i></a>
+						<a href="#" class=""><i class="fa fa-youtube"></i></a>
+					</div>
+
+					<img class="img-fluid team-img" alt="" src="assets/img/persons/p03.jpg">
+					<div class="team-content p-3">
+						<h3>John Doe</h3>
+						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+						<a class="btn btn-info" href="#">
+							<i class="mr-4 fa fa-info"></i>
+							Learn More
+						</a>
+					</div>
+
+				</article>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%= javascript_pack_tag('contact_section.js') %>

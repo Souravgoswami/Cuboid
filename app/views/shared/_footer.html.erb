@@ -1,0 +1,156 @@
+<%= stylesheet_link_tag 'footer', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<footer class="dark-background py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2 float-left">
+				<h2 class="footer-logo">Cu<span>boid</span></h2>
+
+				<div class="footer-social-links py-2">
+					<a href="#" class="px-2"><i class="fab fa-facebook"></i></a>
+					<a href="#" class="px-2"><i class="fab fa-twitter"></i></a>
+					<a href="#" class="px-2"><i class="fab fa-youtube"></i></a>
+					<br class="my-2">
+					<a href="#" class="px-2"><i class="fab fa-instagram"></i></a>
+					<a href="#" class="px-2"><i class="fab fa-linkedin"></i></a>
+				</div>
+			</div>
+
+			<form class="col-lg-10">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="footer-header">
+								Cuboid
+							</div>
+
+							<p><a class="footer-link" href="<%= about_path %>">
+								<i class="far fa-address-card" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								About Us
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-briefcase" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Career
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-book" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Our Stories
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-hands-helping" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Help
+							</a></p>
+						</div>
+
+						<div class="col-md-3">
+							<div class="footer-header">
+								Policy
+							</div>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Return Policy
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Terms of use
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Security
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Terms of Use
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Privacy
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								Sitemap
+							</a></p>
+
+							<p><a class="footer-link">
+								<i class="fas fa-angle-double-right" style="color: <%= random_colours %>"></i>
+								&nbsp;
+								EPR Compliance
+							</a></p>
+						</div>
+
+						<div class="col-md-6">
+							<div class="footer-header">
+								Contact Us
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<h6>
+										<i class="fas fa-envelope-open-text" style="color: <%= random_colours %>"></i>
+										&nbsp;
+										Mail
+									</h6>
+									<p>contact@cuboid.com</p>
+
+									<h6>
+										<i class="fas fa-phone-alt" style="color: <%= random_colours %>"></i>
+										&nbsp;
+										Phone
+									</h6>
+									<p>
+										<%= number_to_phone("033#{random_number_generator(7..7)}") %>
+									</p>
+
+									<h6>
+										<i class="fas fa-comment-alt" style="color: <%= random_colours %>"></i>
+										&nbsp;
+										Chat
+									</h6>
+
+									<p><%= link_to 'Chat with Us', '#', class: "footer-link" %>
+								</div>
+
+								<div class="col-md-6">
+									<h6>
+										<i class="far fa-building" style="color: <%= random_colours %>"></i>
+										&nbsp;
+										Registered Office
+									</h6>
+									<%= "#{rand(50..100)} #{random_string_generator}" %>,
+									<br>
+									<%= random_string_generator %> city,
+									<br>
+									<%= random_string_generator(8..12).capitalize %>
+									<br>
+									Post: <%= 8.times.map { rand(9) }.join %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="attribution text-center p-3 copyright">
+		Created by Sourav Goswami &copy; 2020. All rights reserved.
+	</div>
+</footer>
