@@ -1,5 +1,5 @@
 .navbar {
-	margin-bottom: 0px ;
+	margin-bottom: 200px !important ;
 }
 
 .nav-item > a {
@@ -45,5 +45,135 @@
 @media(max-width: 992px) {
 	.break {
 		display: none !important ;
+	}
+}
+
+.smoky-text {
+	font-family: Alice !important ;
+	letter-spacing: 2px ;
+}
+
+.smoky-text .letters {
+	position: absolute ;
+	animation: smoky 2s ease infinite alternate ;
+}
+
+.side-nav-menu {
+	color: #fff ;
+	padding: 0 8px ;
+	user-select: none ;
+	font-size: 20px ;
+	cursor: pointer ;
+	transition: all 0.25s ease ;
+	animation: none ;
+
+	&:hover {
+		opacity: 0.75 ;
+	}
+
+	&:active {
+		transform: rotate(180deg) scaleX(0.15) ;
+	}
+}
+
+@keyframes rotateAnim {
+	0%, 100% {
+		transform: rotate(0deg) scale(1) ;
+	}
+
+	50% {
+		transform: rotate(360deg) scaleX(0.125) ;
+	}
+}
+
+#side-nav {
+	height: 100vh ;
+	position: fixed ;
+	left: 0 ;
+	width: 250px ;
+	text-align: left ;
+	display: flex ;
+	flex-direction: column ;
+	color: #fff ;
+	word-wrap: break-word ;
+	max-width: 300px ;
+	z-index: 1030 ;
+	filter: drop-shadow(0px 4px 6px #0004) ;
+	background-color: #000 ;
+	transition: all 0.25s ease ;
+	display: inline-block ;
+	transform: translateX(-150%) ;
+	background-color: #222 ;
+
+	& .side-nav-item {
+		color: #fff ;
+		margin: 16px 0 0 16px ;
+		text-align: left ;
+		text-decoration: none ;
+		border-radius: 4px ;
+		font-size: 20px ;
+		font-family: alice ;
+		transition: all 0.25s ease ;
+		position: relative ;
+		display: inline-block ;
+
+		&::before {
+			content: '' ;
+			position: absolute ;
+			bottom: 0 ;
+			left: 50% ;
+			height: 2px ;
+			transform: translateX(-50%) ;
+			width: 0% ;
+			transition: all 0.25s ease ;
+			background-color: #fff ;
+		}
+
+		&:hover {
+			text-shadow: 0px 0px 8px #fff, 0px 0px 50px #fff ;
+
+			&::before {
+				width: 100% ;
+			}
+		}
+	}
+}
+
+#hide-button {
+	font-size: 50px ;
+	position: absolute ;
+	bottom: 0 ;
+	right: 0 ;
+	padding: 4px 10px ;
+	user-select: none ;
+	border-radius: 1px ;
+	transform: translate(100%, -75%) ;
+	background-color: inherit ;
+	cursor: pointer ;
+	transition: all 0.075s ease ;
+}
+
+@keyframes smoky {
+	0% {
+		transform: translateY(-200%) rotate(45deg) ;
+		filter: blur(12px) ;
+		opacity: 1 ;
+	}
+
+	20%, 50%, 90% {
+		transform: translateY(0%) rotate(0deg) ;
+		filter: blur(0) ;
+		opacity: 1 ;
+	}
+
+	60% {
+		transform: translateY(0%) rotate(0deg) ;
+		opacity: 0.5 ;
+	}
+
+	100% {
+		transform: translateY(-200%) rotate(45deg) ;
+		filter: blur(0px) ;
+		opacity: 1 ;
 	}
 }

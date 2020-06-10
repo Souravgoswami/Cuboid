@@ -1,0 +1,99 @@
+<%= form_with(model: product, local: true) do |f| %>
+	<% if product.errors.any? %>
+		<div id="error_explanation">
+			<%=
+				alert_generator(
+					%[#{pluralize(product.errors.count, "error")} prohibited this product from being saved]
+				)
+			%>
+
+			<% product.errors.full_messages.each do |message| %>
+				<%= alert_generator(message) %>
+			<% end %>
+		</div>
+	<% end %>
+
+	<div class="body-wrapper-flex">
+		<div class="card w-90 shadow rounded">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :title %>
+							<%= f.text_field :title, class: 'form-control' %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<%= f.label :description %>
+							<%= f.text_area :description, class: 'form-control' %>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<%= f.label :features %>
+							<%= f.text_area :features, class: 'form-control' %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="field">
+							<%= f.label :price %>
+							<%= f.text_field :price, class: 'form-control' %>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :main_image %>
+							<br>
+							<%= f.file_field :main_image %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :thumbnail %>
+							<br>
+							<%= f.file_field :thumbnail %>
+						</div>
+					</div>
+				</div>
+
+				<%= f.fields_for :previews do |preview_form| %>
+					<%= render 'preview_fields', f: preview_form %>
+				<% end %>
+
+				<div class="col-md-12">
+					<%= link_to_add_association '', f, :previews, class: 'btn-outline-danger-animated', 'data-content': '&#x002B; Add More Previews'.html_safe %>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<label class="btn-outline-warning-animated" data-content="&#x2713;submit">
+							<%= f.submit '', style: 'display: none' %>
+						</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<%= link_to '', products_path, class: 'btn-outline-info-animated', 'data-content': "&#x276E; Back".html_safe %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

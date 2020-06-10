@@ -1,0 +1,35 @@
+<div class="container py-2">
+	<div id="carousel" class="carousel slide shadow">
+		<div class="carousel-inner">
+			<% data.each.with_index do |x, i| %>
+				<div class="carousel-item <%= 'active' if i == 0 %>">
+					<% if x %>
+						<div class="img-min-100">
+							<%= image_tag x, class: 'img-fluid' %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</a>
+
+			<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</a>
+		</div>
+
+		<ul class="carousel-indicators list-inline mx-auto border px-2">
+			<% data.each_with_index do |x, i| %>
+				<li class="list-inline-item active">
+					<a class="selected" data-slide-to="<%= i %>" data-target="#carousel">
+						<% if x %>
+							<%= image_tag x, class: "img-fluid" %>
+						<% end %>
+					</a>
+				</li>
+			<% end %>
+		</ol>
+	</div>
+</div>

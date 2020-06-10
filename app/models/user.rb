@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
+  has_many :products
+  has_many :reviews
+  has_many :purchases
+
   def first_name
     self.name.to_s.split(' ')[0].to_s.capitalize
   end

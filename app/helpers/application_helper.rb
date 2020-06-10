@@ -45,6 +45,48 @@ module ApplicationHelper
 		"##{6.times.map { [ (?a..?f).to_a.sample, (0..9).to_a.sample].sample }.join}"
 	end
 
+	def cart_count_over_one
+		if @cart.line_items.count > 0
+			return "<span>#{cart.line_items.count}</span>".html_safe
+		end
+	end
+
+	def cart_has_items
+		return @cart.line_items.count > 0
+	end
+
+	def notifications
+		msg = flash[:notice] || flash[:alert] || flash[:error]
+		alert_generator(msg).html_safe if msg
+	end
+
+	def alert_generator(msg = '', button_message = 'Ok')
+		%[<script>notify("#{msg}", "#{button_message}")</script>].html_safe
+	end
+
+	def format_tags(x, str = '', highlight = nil, css_class = "links")
+		t = x.tags.map(&:title)
+
+		unless highlight
+			t.map! do |x|
+				%[<a href="tags/#{x}" class="#{css_class}" data-content="#{x}">#{x}</a>]
+			end
+		else
+			t.map! do |x|
+				v = %[<a href="#{x}" class="#{css_class}" data-content="#{x}">#{x}</a>]
+
+				if x == highlight
+					v.prepend('<strong>')
+					v << '</strong>'
+				end
+
+				v
+			end
+		end
+
+		t.empty? ? '' : %[<span class="no-user-select">#{str} #{t.join(', ')}</span>]
+	end
+
 	# TODO:
 	# def guest_user_language_prefs
 	# 	if current_user.is_a?(GuestUser)

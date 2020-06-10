@@ -1,9 +1,35 @@
 <%= stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div id="side-nav">
+	<div><a href="#" class="side-nav-item">Hello World</a></div>
+	<div><a href="#" class="side-nav-item">Hello World</a></div>
+	<div><a href="#" class="side-nav-item">Hello World</a></div>
+	<div><a href="#" class="side-nav-item">Hello World</a></div>
+	<div><a href="#" class="side-nav-item">Hello World</a></div>
+	<div><a href="#" class="side-nav-item">Hello World</a></div>
+
+	<div id="hide-button" onclick="toggleMenu('side-nav', 'side-nav-menu-icon', 'side-nav-menu-id', 'hide-button')">
+		&#xab;
+	</div>
+</div>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+	<div data-toggle="tooltip" title="Menu" data-placement="bottom" class="side-nav-menu" id="side-nav-menu-id" onclick="toggleMenu('side-nav', 'side-nav-menu-icon', 'side-nav-menu-id', 'hide-button')">
+		<span id="side-nav-menu-icon">&#9776;</span>
+	</div>
+
 	<div class="navbar-header" data-toggle="tooltip" title="Home" data-placement="bottom">
 		<%= link_to root_path, class: "navbar-brand img-link" do %>
 			<%= image_tag "cuboid.png", width: "30px" %>
+			<span class="smoky-text">
+				<span style="animation-delay: 0.1s" class="letters">C</span>&nbsp;
+				<span style="animation-delay: 0.2s" class="letters">u</span>&nbsp;
+				<span style="animation-delay: 0.3s" class="letters">b</span>&nbsp;
+				<span style="animation-delay: 0.4s" class="letters">o</span>&nbsp;
+				<span style="animation-delay: 0.5s" class="letters">i</span>&nbsp;
+				<span style="animation-delay: 0.6s" class="letters">d</span>
+			</span>
 		<% end %>
 	</div>
 
@@ -47,7 +73,7 @@
 				</a>
 			</li>
 
-			<li class="nav-item dropdown" >
+			<li class="nav-item dropdown dropdown-raise" >
 				<a class="nav-link dropdown-toggle hover-line" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<%= image_tag "language.svg", width: "18px" %>
 					<%= 'En' %>
@@ -60,7 +86,7 @@
 				</div>
 			</li>
 
-			<li class="nav-item dropdown">
+			<li class="nav-item dropdown dropdown-raise">
 				<a class="nav-link dropdown-toggle hover-line" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<%= image_tag "account.svg", width: "18px" %>
 					<%= current_user.first_name %>
@@ -74,104 +100,104 @@
 	</div>
 </nav>
 
-<div id="menu">
-	<ul class="menu-ul">
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-				Computer
-				<span class="caret"></span>
-			</a>
+	<div id="menu">
+		<ul class="menu-ul">
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+					Computer
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 4</a></li>
-			</ul>
-		</li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 4</a></li>
+				</ul>
+			</li>
 
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
-				Laptops
-				<span class="caret"></span>
-			</a>
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+					Laptops
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 2-1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 2-2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 2-3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 2-4</a></li>
-			</ul>
-		</li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 2-1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 2-2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 2-3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 2-4</a></li>
+				</ul>
+			</li>
 
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown">
-				SBC
-				<span class="caret"></span>
-			</a>
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown">
+					SBC
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 3-1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 3-2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 3-3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 3-4</a></li>
-			</ul>
-		</li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 3-1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 3-2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 3-3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 3-4</a></li>
+				</ul>
+			</li>
 
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown">
-				RAM
-				<span class="caret"></span>
-			</a>
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown">
+					RAM
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 4-1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 4-2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 4-3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 4-4</a></li>
-			</ul>
-		</li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 4-1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 4-2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 4-3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 4-4</a></li>
+				</ul>
+			</li>
 
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown">
-				GPU
-				<span class="caret"></span>
-			</a>
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown">
+					GPU
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu5">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 5-1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 5-2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 5-3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 5-4</a></li>
-			</ul>
-		</li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu5">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 5-1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 5-2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 5-3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 5-4</a></li>
+				</ul>
+			</li>
 
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu6" data-toggle="dropdown">
-				Processors
-				<span class="caret"></span>
-			</a>
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu6" data-toggle="dropdown">
+					Processors
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu6">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 6-1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 6-2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 6-3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 6-4</a></li>
-			</ul>
-		</li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu6">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 6-1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 6-2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 6-3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 6-4</a></li>
+				</ul>
+			</li>
 
-		<li class="dropdown">
-			<a class="dropdown-toggle" type="button" id="dropdownMenu7" data-toggle="dropdown">
-				Others
-				<span class="caret"></span>
-			</a>
+			<li class="dropdown">
+				<a class="dropdown-toggle" type="button" id="dropdownMenu7" data-toggle="dropdown">
+					Others
+					<span class="caret"></span>
+				</a>
 
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu7">
-				<li role="presentation" class="dropdown-header"><a href="#">Item 7-1</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 7-2</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 7-3</a></li>
-				<li role="presentation" class="dropdown-header"><a href="#">Item 7-4</a></li>
-			</ul>
-		</li>
-	</ul>
-</div>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu7">
+					<li role="presentation" class="dropdown-header"><a href="#">Item 7-1</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 7-2</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 7-3</a></li>
+					<li role="presentation" class="dropdown-header"><a href="#">Item 7-4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>

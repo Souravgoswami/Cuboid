@@ -6,23 +6,24 @@
 		<%= csp_meta_tag %>
 
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-		<%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<%= stylesheet_link_tag 'buttons_outline', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= stylesheet_link_tag 'notify-send', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+		<%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	</head>
 
 	<body>
-		<%= render('shared/nav') %>
+		<div class="header">
+			<%= render('shared/nav') %>
+		</div>
 
-		<% if notice %>
-			<p class="notice"><%= notice %></p>
-		<% end %>
+		<div class="body-content">
+			<%= notifications %>
+			<%= yield %>
+		</div>
 
-		<% if alert %>
-			<p class="alert"><%= alert %></p>
-		<% end %>
-
-		<%= yield %>
-
-		<%= render('shared/footer') %>
+		<div class="footer">
+			<%= render('shared/footer') %>
+		</div>
 	</body>
 </html>

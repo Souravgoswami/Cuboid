@@ -47,3 +47,10 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 gem 'irb', require: false
 gem 'rdoc', require: false
+
+gem "kaminari", "~> 1.2"
+gem "carrierwave", "~> 2.1"
+
+gem "cocoon", "~> 1.2"
+
+gem "friendly_id", "~> 5.3"

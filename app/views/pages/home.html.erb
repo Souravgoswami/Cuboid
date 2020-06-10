@@ -1,1 +1,312 @@
-<%= render('shared/body') %>
+<div class="container-fluid" id="contents px-0">
+	<div id="head-wrap">
+		<div id="heading">
+			Welcome to Cuboid...%-%Your Digital Computer Store...%-%We Offer High Quality Products...
+		</div>
+		<span id="caret">|</span>
+	</div>
+
+	<%# <%= cart_has_items %>
+
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+		</ol>
+
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<%= image_tag 'carousel-images/1.jpg', class: 'd-block w-100' %>
+			</div>
+
+			<div class="carousel-item">
+				<%= image_tag 'carousel-images/2.jpg', class: 'd-block w-100' %>
+			</div>
+
+			<div class="carousel-item">
+				<%= image_tag 'carousel-images/3.jpg', class: 'd-block w-100' %>
+			</div>
+
+			<div class="carousel-item">
+				<%= image_tag 'carousel-images/4.jpg', class: 'd-block w-100' %>
+			</div>
+
+			<div class="carousel-item">
+				<%= image_tag 'carousel-images/5.jpg', class: 'd-block w-100' %>
+			</div>
+
+			<div class="carousel-item">
+				<%= image_tag 'carousel-images/6.jpg', class: 'd-block w-100' %>
+			</div>
+		</div>
+
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+	<div class="carousel slide" id="myCarousel" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			<li data-target="#myCarousel" data-slide-to="5"></li>
+		</ol>
+
+		<div class="carousel-inner">
+			<div class="item active">
+				<div class="carousel-caption"><p>First Slide</p></div>
+			</div>
+
+			<div class="item">
+				<div class="carousel-caption"><p>Second Slide</p></div>
+			</div>
+
+			<div class="item">
+				<div class="carousel-caption"><p>Third Slide</p></div>
+			</div>
+
+			<div class="item">
+				<div class="carousel-caption"><p>Fourth Slide</p></div>
+			</div>
+
+			<div class="item">
+				<div class="carousel-caption"><p>Fifth Slide</p></div>
+			</div>
+		</div>
+
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"><span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+
+
+	<div class="separator-wrapper">
+		<div class="separator">
+			Hot Sales
+		</div>
+	</div>
+
+	<%# Items Card %>
+	<div id="item-thumbnails">
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/2.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/1.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/3.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/4.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/5.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/6.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/7.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+				<div class="card">
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<%= image_tag "thumbnails/8.jpg", class: 'card-img-top' %>
+				</div>
+
+					<div class="card-body">
+						<h5 class="card-title">Keyboard + Mouse Combo</h5>
+						<p class="card-text">An excellent mouse keyboard combo from apple</p>
+						<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+						<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+						<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-4">
+			</div>
+		</div>
+	</div>
+
+	<center>
+		<ul class="pagination pagination-lg">
+			<li class="page-item">
+				<a href="#" aria-label="Previous" class="page-link">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			<li>
+
+			<li class="page-item"><a href="#" class="page-link">1</a></li>
+			<li class="page-item"><a href="#" class="page-link">2</a></li>
+			<li class="page-item"><a href="#" class="page-link">3</a></li>
+			<li class="page-item"><a href="#" class="page-link">4</a></li>
+			<li class="page-item"><a href="#" class="page-link">5</a></li>
+
+			<li class="page-item">
+				<a href="#" aria-label="Next" class="page-link">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			<li>
+		</ul>
+	</center>
+</div>
+
+<%= javascript_pack_tag 'home_body.js' %>

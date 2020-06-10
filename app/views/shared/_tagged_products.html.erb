@@ -1,0 +1,33 @@
+<% tag.product.tap do |x| %>
+	<div class="col-sm-6 col-md-4 mb-4">
+		<div class="card">
+			<%= link_to x do %>
+				<div class="img-hover-effect">
+					<div class="img-hover-label">
+						<i class="fas fa-info-circle"></i>
+						More Info
+					</div>
+
+					<% if x.thumbnail.url %>
+						<%= image_tag x.thumbnail.url, class: 'card-img-top' %>
+					<% else %>
+						<div class="no-img-label">No Preview Available!</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<div class="card-body">
+				<h5 class="card-title"><%= x.title %></h5>
+				<p class="card-text"><%= x.description.to_s %></p>
+
+				<p class="card-text">
+					<%= format_tags(x, 'tags:', tag.title).html_safe %>
+				</p>
+
+				<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
+				<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
+				<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+			</div>
+		</div>
+	</div>
+<% end %>

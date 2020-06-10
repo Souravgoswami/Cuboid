@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-md-4">
+		<%=
+			render 'shared/previews',
+			data: [
+				@product.main_image.url, @product.thumbnail.url,
+				*@product.previews.map { |x| x.image.url }
+			]
+		%>
+	</div>
+
+	<div class="col-md-6">
+		<h1><%= @product.title %></h1>
+		<p>By <%= 'AKG' %></p>
+
+		<div class="rating-wrapper-all">
+			<div class="rating-wrapper">
+				<div class="rating-div"></div>
+				<div class="rating">
+					<%= image_tag 'stars.png', class: 'rating' %>
+				</div>
+			</div>
+
+			<span class="ratings-label">134 Ratings</span>
+		</div>
+
+		<br>
+		<hr>
+
+		<% if @product.price == @product.price %>
+			Price: Rs. <%= @product.price %>
+		<% elsif @product.price < @product.price %>
+			MRP. Rs. <strike><%= @product.price %></strike><br>
+			Price: Rs. <%= @product.price %>
+		<% end %>
+
+		<br>
+		<br>
+
+		<h5>Description</h5>
+		<%= @product.description %>
+
+		<br>
+		<br>
+
+		<h5>Features</h5>
+		<%= @product.features %>
+	</div>
+</div>
+<hr>
+
+<div class="row">
+	<div class="col-md-8">
+		<% @product.tags.each do |x| %>
+			<a href=""><%= x.title %></a>
+		<% end %>
+	</div>
+</div>
+
+<p>
+	<strong>Price:</strong>
+	<%= @product.price %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

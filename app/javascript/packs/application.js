@@ -18,3 +18,5 @@ document.addEventListener('turbolinks:load', () => {
 })
 
 import "@fortawesome/fontawesome-free/js/all";
+import './notify-send'
+import 'cocoon-js'
