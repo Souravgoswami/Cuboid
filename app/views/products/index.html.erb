@@ -142,27 +142,9 @@
 		</div>
 	</div>
 
-	<center>
-		<ul class="pagination pagination-lg">
-			<li class="page-item">
-				<a href="#" aria-label="Previous" class="page-link">
-					<span aria-hidden="true">&laquo;</span>
-				</a>
-			<li>
-
-			<li class="page-item"><a href="#" class="page-link">1</a></li>
-			<li class="page-item"><a href="#" class="page-link">2</a></li>
-			<li class="page-item"><a href="#" class="page-link">3</a></li>
-			<li class="page-item"><a href="#" class="page-link">4</a></li>
-			<li class="page-item"><a href="#" class="page-link">5</a></li>
-
-			<li class="page-item">
-				<a href="#" aria-label="Next" class="page-link">
-					<span aria-hidden="true">&raquo;</span>
-				</a>
-			<li>
-		</ul>
-	</center>
+	<div class="centrify">
+		<%= paginate @products %>
+	</div>
 </div>
 
 <%= javascript_pack_tag 'home_body.js' %>

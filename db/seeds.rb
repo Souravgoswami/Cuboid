@@ -1,6 +1,6 @@
 User.create!(email: 'a@a.a', password: 'aaaaaa', name: 'a')
 
-10.times do |x|
+100.times do |x|
 	fname = "User#{x + 1}"
 	lname = rand(4..8).times.map { rand(97..122).chr }.join
 

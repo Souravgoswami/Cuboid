@@ -572,3 +572,14 @@ body {
 		filter: drop-shadow(0px 0px 6px #0005) ;
 	}
 }
+
+.centrify {
+	width: 100% ;
+	height: 100px ;
+	flex-direction: column ;
+	display: flex ;
+	place-items: center ;
+	justify-items: center ;
+	text-align: center ;
+
+}
