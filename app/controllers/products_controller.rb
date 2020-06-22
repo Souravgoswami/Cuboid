@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
 	before_action :set_product, only: [:show, :edit, :update, :destroy, :reviews, :add_to_line_items, :checkout, :add_to_wishlist]
-
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :add_to_line_items, :add_to_wishlist]
+	access all: [:show, :index], user: { except: [:destroy, :edit, :new] }, site_admin: :all
 
 	# GET /products
 	# GET /products.json
 	def index
-		@products = Product.page(params[:page]).per(5)
+		@products = Product.order('created_at desc').page(params[:page]).per(20)
 		# ('created_at desc').page(5)
 	end
 
@@ -27,33 +27,46 @@ class ProductsController < ApplicationController
 		@ratings_avg = @ratings.map(&:rating).sum / @n_ratings
 	end
 
-	# GET /products/1
+	# PATCH /products/1
 	def add_to_line_items
-		@line_item = LineItem.new(user_id: current_user.id, product_id: @product.id)
+		if current_user.is_a?(GuestUser)
+			respond_to do |format|
+				format.js { render 'sign_in_to_continue' }
+			end
+		else
+			@line_item = LineItem.new(user_id: current_user.id, product_id: @product.id)
 
-		respond_to do |format|
-			if @line_item.save
-				format.js
-			else
-				format.js { render 'failed_saving_cart_item' }
+			respond_to do |format|
+				if @line_item.save
+					format.js
+				else
+					format.js { render 'failed_saving_cart_item' }
+				end
 			end
 		end
 	end
 
 	def add_to_wishlist
-		if Wishlist.where(product_id: @product.id).empty?
-			@wishlist = Wishlist.new(user_id: current_user.id, product_id: @product.id)
-
+		if current_user.is_a?(GuestUser)
 			respond_to do |format|
-				if @wishlist.save
-					format.js
-				else
-					format.js { render 'failed_adding_wishlist' }
-				end
+				format.js { render 'sign_in_to_continue' }
 			end
 		else
-			respond_to do |format|
-				format.js { render 'already_added_to_wishlist' }
+			if Wishlist.where(product_id: @product.id).empty?
+				@wishlist = Wishlist.new(user_id: current_user.id, product_id: @product.id)
+
+				respond_to do |format|
+					if @wishlist.save
+						format.js
+					else
+						format.js { render 'failed_adding_wishlist' }
+					end
+				end
+			# elsif !current_user
+			else
+				respond_to do |format|
+					format.js { render 'already_added_to_wishlist' }
+				end
 			end
 		end
 	end

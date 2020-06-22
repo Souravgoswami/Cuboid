@@ -1,50 +1,89 @@
-<p id="notice"><%= notice %></p>
+<%= link_to '', products_path, class: 'btn-outline-purple-animated', 'data-content': 'back' %>
 
-<div class="row">
+<div class="row mb-5">
 	<div class="col-md-2">
 	</div>
 
 	<div class="col-md-4">
 		<div class="shadow-sm-hover">
-			<div class="card">
+			<div class="card overflow-hide">
 				<div class="card-body">
 					<form class="form-group">
-						<div class="mt-4">
-							Type <br>
+						<div class="swap-flip">
+							<div class="mt-4">
+								Type <br>
 
-							<select class="form-control">
-								<option>Visa</option>
-								<option>Master Card</option>
-								<option>RuPay</option>
-							</select>
-						</div>
+								<select class="form-control">
+									<option>Visa</option>
+									<option>Master Card</option>
+									<option>RuPay</option>
+								</select>
+							</div>
 
-						<div class="mt-4">
-							<label for="dummyInput1">Name on Card</label>
-							<input type="text" class="form-control" id="dummyInput1" placeholder="Name">
-						</div>
+							<div class="mt-4">
+								<label for="dummyInput1">Name on Card</label>
+								<input type="text" class="form-control" id="dummyInput1" placeholder="Name">
+							</div>
 
-						<div class="mt-4">
-							<label for="dummyInput1">Credit/Debit Card Number</label>
-							<input type="text" class="form-control" placeholder="Credit/Debit Card Number">
-						</div>
+							<div class="mt-4">
+								<label for="dummyInput1">Credit/Debit Card Number</label>
+								<input type="text" class="form-control" placeholder="Credit/Debit Card Number">
+							</div>
 
-						<div class="mt-4">
-							Expiration Date
-							<div class="row">
-								<div class="col-md-4">
-									<select class="form-control" id="monthPicker"></select>
+							<div class="mt-4">
+								Expiration Date
+								<div class="row">
+									<div class="col-md-4">
+										<select class="form-control" id="monthPicker"></select>
+									</div>
+
+									<div class="col-md-4">
+										<select class="form-control" id="yearPicker"></select>
+									</div>
 								</div>
+							</div>
 
-								<div class="col-md-4">
-									<select class="form-control" id="yearPicker"></select>
-								</div>
+							<div class="mt-4">
+								<label for="dummyInput1">CVV Number</label>
+								<input type="text" class="form-control" id="dummyInput1" placeholder="CVV">
 							</div>
 						</div>
 
-						<div class="mt-4">
-							<label for="dummyInput1">CVV Number</label>
-							<input type="text" class="form-control" id="dummyInput1" placeholder="CVV">
+						<div class="swap-flop">
+							Delivery Address
+							<div class="mt-4">
+								<% 3.times do |i| %>
+									<label for="dummyInput1" class="mt-2">Delivery Adress Line <%= i.next %></label>
+									<input type="text" class="form-control" id="dummyInput1" placeholder="Address Line <%= i.next %>">
+								<% end %>
+							</div>
+
+							<div class="mt-4">
+								<label for="dummyInput1">City</label>
+								<input type="text" class="form-control">
+							</div>
+
+							<div class="mt-4">
+								<label for="dummyInput1">Pin Code</label>
+								<input type="text" class="form-control">
+							</div>
+
+							<div class="mt-4">
+								<label for="dummyInput1">State</label>
+								<select class=" form-control"></select>
+							</div>
+						</div>
+
+						<div class="mt-4" class="swap-flip">
+							<center>
+								<div class="swap-flip">
+									<%= link_to '', '', class: 'btn-outline-purple-animated', 'data-content': 'Continue', remote: true %>
+								</div>
+
+								<div class="swap-flop">
+									<%= link_to '', '', class: 'btn-outline-pink-animated', 'data-content': 'Confirm', remote: true %>
+								</div>
+							<center>
 						</div>
 					</form>
 				</div>
@@ -94,6 +133,3 @@
 		<% end %>
 	</div>
 </div>
-
-<%= link_to 'Edit', edit_product_path(@product), class: 'btn-outline-green-animated' %> |
-<%= link_to '', products_path, class: 'btn-outline-purple-animated', 'data-content': 'back' %>

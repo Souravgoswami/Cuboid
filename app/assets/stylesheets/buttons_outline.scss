@@ -8,7 +8,8 @@
 .btn-outline-blue-animated,
 .btn-outline-green-animated,
 .btn-outline-orange-animated,
-.btn-outline-purple-animated {
+.btn-outline-purple-animated,
+.btn-outline-emerald-animated {
 	content: attr(data-content) ;
 	background-color: transparent ;
 	margin: 4px ;
@@ -134,4 +135,8 @@
 
 .btn-outline-purple-animated {
 	@include btn-outline-animated-colours(#912BFF, #fff) ;
+}
+
+.btn-outline-emerald-animated {
+	@include btn-outline-animated-colours(#0088FF, #fff) ;
 }

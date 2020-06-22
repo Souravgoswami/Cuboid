@@ -7,4 +7,6 @@ $(() => {
 
 	for(let i = 1 ; i < 13 ; ++i)
 		monthPicker.append(`<option>${i}</option>`)
+
+	let cities = ['kolkata', 'Durgapur', 'Asansol', 'Siliguri']
 })

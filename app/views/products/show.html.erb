@@ -1,3 +1,4 @@
+<%= link_to '', products_path, class: 'btn-outline-purple-animated', 'data-content': 'back' %>
 <p id="notice"><%= notice %></p>
 
 <div class="row">
@@ -52,15 +53,34 @@
 		<div class="break-word-wrapper"><%= @product.features %></div>
 
 		<%= link_to product_checkout_path(@product), method: :get, class: 'btn-outline-pink-animated', 'data-content': 'Buy Now' do %>
-			<%= image_tag 'purchase.svg', width: '24px' %>
+			<%= image_tag('purchase.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
 		<% end %>
 
 		<%= link_to product_add_to_line_items_path(@product), remote: true, method: :patch, class: 'btn-outline-blue-animated', 'data-content': 'Add to Cart' do %>
-			<%= image_tag 'cart-button.svg', width: '24px' %>
+			<%= image_tag('cart-button.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
 		<% end %>
 
 		<%= link_to product_add_to_wishlist_path(@product), remote: true, method: :patch, class: 'btn-outline-warning-animated', 'data-content': 'Add to Wishlist' do %>
-			<%= image_tag 'wishlist.svg', width: '24px' %>
+			<%= image_tag('wishlist.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
+		<% end %>
+
+		<%if logged_in?(:site_admin) %>
+			<hr>
+
+			<div class="admin-section">
+				<%= image_tag 'diamond.svg', height: '40px' %>
+				<span class="centrify-v height-36">Admin Actions</span>
+			</div>
+
+			<br>
+
+			<%= link_to edit_product_path(@product), class: 'btn-outline-pink-animated', 'data-content': 'Edit' do %>
+				<%= image_tag('pencil.svg', width: '24px') + '&nbsp;&nbsp;'.html_safe %>
+			<% end %>
+
+			<%= link_to @product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-outline-emerald-animated', 'data-content': 'Trashify' do %>
+				<%= image_tag('trash.svg', width: '24px') + '&nbsp;&nbsp;'.html_safe %>
+			<% end %>
 		<% end %>
 	</div>
 </div>
@@ -75,8 +95,3 @@
 	<br>
 	<br>
 <% end %>
-
-
-
-<%= link_to 'Edit', edit_product_path(@product), class: 'btn-outline-green-animated' %> |
-<%= link_to '', products_path, class: 'btn-outline-purple-animated', 'data-content': 'back' %>

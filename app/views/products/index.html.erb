@@ -1,35 +1,5 @@
-<p id="notice"><%= notice %></p>
-<h1>Products</h1>
 
-<table>
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Features</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
 
-	<tbody>
-		<% @products.each do |product| %>
-			<tr>
-				<td><%= product.title %></td>
-				<td><%= product.description %></td>
-				<td><%= product.price %></td>
-				<td><%= product.features %></td>
-				<td><%= link_to 'Show', product %></td>
-				<td><%= link_to 'Edit', edit_product_path(product) %></td>
-				<td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
 
 <div class="container-fluid" id="contents px-0">
 	<div id="head-wrap">
@@ -39,7 +9,9 @@
 		<span id="caret">|</span>
 	</div>
 
-	<%# <%= cart_has_items %>
+	<% if logged_in?(:site_admin) %>
+		<center><%= link_to 'New Product', new_product_path %></center>
+	<% end %>
 
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -98,7 +70,7 @@
 	<div id="item-thumbnails">
 		<div class="row">
 			<% @products.each do |x| %>
-				<div class="col-sm-6 col-md-4 mb-4">
+				<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4">
 					<div class="card">
 						<%= link_to x do %>
 							<div class="img-hover-effect">
@@ -117,7 +89,7 @@
 
 						<div class="card-body">
 							<h3 class="card-title"><%= x.title %></h3>
-							<h5 class="card-title">Price: Rs. <%= x.price %></h5>
+							<h5 class="card-title">Price: <%= rs_tag(x.price) %></h5>
 							<h6 class="card-text"><%= x.description.to_s %></h6>
 
 							<p class="card-text">
@@ -125,15 +97,35 @@
 							</p>
 
 							<%= link_to product_add_to_line_items_path(x), remote: true, method: :patch, class: 'btn-outline-blue-animated', 'data-content': 'Add to Cart' do %>
-								<%= image_tag 'cart-button.svg', width: '24px' %>
+								<%= image_tag('cart-button.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
 							<% end %>
 
 							<%= link_to product_checkout_path(x), method: :get, class: 'btn-outline-pink-animated', 'data-content': 'Buy Now' do %>
-								<%= image_tag 'purchase.svg', width: '24px' %>
+								<%= image_tag('purchase.svg', width: '24px') + "&nbsp;&nbsp".html_safe  %>
 							<% end %>
 
 							<%= link_to product_add_to_wishlist_path(x), remote: true, method: :patch, class: "btn-outline-warning-animated", 'data-content': "Buy Later" do %>
-								<%= image_tag 'wishlist.svg', width: '24px' %>
+								<%= image_tag('wishlist.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
+							<% end %>
+
+							<%#= Admin Actions %>
+							<%if logged_in?(:site_admin) %>
+								<hr>
+
+								<div class="admin-section">
+									<%= image_tag 'diamond.svg', height: '40px' %>
+									<span class="centrify-v height-36">Admin Actions</span>
+								</div>
+
+								<br>
+
+								<%= link_to edit_product_path(x), class: 'btn-outline-pink-animated', 'data-content': 'Edit' do %>
+									<%= image_tag('pencil.svg', width: '24px') + '&nbsp;&nbsp;'.html_safe %>
+								<% end %>
+
+								<%= link_to x, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-outline-emerald-animated', 'data-content': 'Trashify' do %>
+									<%= image_tag('trash.svg', width: '24px') + '&nbsp;&nbsp;'.html_safe %>
+								<% end %>
 							<% end %>
 						</div>
 					</div>
@@ -143,7 +135,7 @@
 	</div>
 
 	<div class="centrify">
-		<%= paginate @products %>
+		<%= paginate @products, class: 'pagination' %>
 	</div>
 </div>
 
