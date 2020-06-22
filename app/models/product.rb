@@ -12,11 +12,12 @@ class Product < ApplicationRecord
 	mount_uploader :thumbnail, ProductUploader
 	mount_uploader :main_image, ProductUploader
 
-	has_many :line_items
-	has_many :previews
-	has_many :reviews
-	has_many :purchases
 	has_many :tags
+	has_many :line_items
+	has_many :wishlists
+	has_many :reviews
+	has_many :previews
+	has_many :purchases
 
 	accepts_nested_attributes_for :previews,
 		allow_destroy: true,

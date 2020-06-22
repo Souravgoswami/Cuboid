@@ -54,3 +54,5 @@ gem "carrierwave", "~> 2.1"
 gem "cocoon", "~> 1.2"
 
 gem "friendly_id", "~> 5.3"
+
+gem "mini_magick", "~> 4.10"

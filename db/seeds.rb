@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 User.create!(email: 'a@a.a', password: 'aaaaaa', name: 'a')
 
 10.times do |x|
@@ -22,21 +14,20 @@ User.create!(email: 'a@a.a', password: 'aaaaaa', name: 'a')
 		title: rand(5..15).times.map { rand(97..122).chr }.join.capitalize,
 		description: rand(50..150).times.map { rand(97..122).chr }.join.capitalize,
 		price: rand(5000.0..50000.0),
+		user_id: u.id,
 		features: rand(10..50).times.map { rand(97..122).chr }.join.capitalize
 	)
 
-	rand(1..5).times do |x|
-		Review.create!(
-			product_id: p.id, user_id: u.id,
-			comment: rand(5..15).times.map { rand(97..122).chr }.join.capitalize,
-			rating: rand(1.0..5.0)
-		)
+	Review.create!(
+		product_id: p.id, user_id: u.id,
+		comment: rand(5..15).times.map { rand(97..122).chr }.join.capitalize,
+		rating: rand(1.0..5.0)
+	)
 
-		# Preview.create!(
-		# 	product_id: p.id,
-		# 	image: rand(5..15).times.map { rand(97..122).chr }.join.capitalize,
-		# )
-	end
+	# Preview.create!(
+	# 	product_id: p.id,
+	# 	image: rand(5..15).times.map { rand(97..122).chr }.join.capitalize,
+	# )
 
 	print "\e[2K#{x + 1}\r"
 end

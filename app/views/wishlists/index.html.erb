@@ -1,0 +1,73 @@
+<center><h2>Your Wishlist</h2></center>
+
+<div id="item-thumbnails">
+	<div class="row">
+		<div class="col-md-6 col-sm-12 col-lg-4">
+			<% @wishlists.each.with_index do |x, i| %>
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title"><%= x.product.title %></h3>
+						<h5 class="card-title">Price: <%= rs_tag(x.product.price) %></h5>
+						<h6 class="card-text"><%= x.product.description.to_s %></h6>
+
+						<p class="card-text">
+							<%= format_tags(x.product, 'tags:').html_safe %>
+						</p>
+
+						<%= link_to product_add_to_line_items_path(x.product), method: :patch, remote: true, class: "btn-outline-primary-animated", 'data-content': "Add to Cart" do %>
+							<%= image_tag 'cart-button.svg', width: '24px' %>
+						<% end %>
+
+						<%= link_to line_items_path, class: "btn-outline-success-animated", 'data-content': "Checkout" do %>
+							<%= image_tag 'purchase.svg', width: '24px' %>
+						<% end %>
+
+						<%= link_to x, method: :delete, class: "btn-outline-warning-animated", 'data-content': "Remove", data: { confirm: 'Are you sure?' } do %>
+							<%= image_tag 'wishlist-remove.svg', width: '24px' %>
+						<% end %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+		<div class="col-md-2 col-lg-4 col-sm-0">
+		</div>
+
+		<div class="col-md-4 col-lg-4 col-sm-12">
+			<h4>Other items you might be interested in:</h4>
+			<% user_top_suggested_tags(3).each do |x| %>
+				<%= link_to x, class: 'link-no-style' do %>
+					<div class="card mb-3">
+						<div class="card-body">
+							<div class="img-hover-effect">
+								<div class="img-hover-label">
+									<i class="fas fa-info-circle"></i>
+									More Info
+								</div>
+
+								<% if x.thumbnail.url %>
+									<%= image_tag x.thumbnail.thumbnail!.url, class: 'card-img-top' %>
+								<% else %>
+									<div class="no-img-label">No Preview Available!</div>
+								<% end %>
+							</div>
+
+							<div style="font-weight: 1000 ; font-size: 20px"><%= x.title %></div>
+							<%= rs_tag(x.product.price) %>
+
+							<%= x %>
+							<div class="rating-wrapper-all">
+								<div class="rating-wrapper">
+									<div class="rating-div"></div>
+									<%= image_tag 'stars.png', class: 'rating' %>
+								</div>
+
+								<span class="ratings-label">134</span>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

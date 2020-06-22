@@ -2,6 +2,8 @@ class PreviewUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  # extend CarrierwaveConfigs
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -37,6 +39,10 @@ class PreviewUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_whitelist
     %w(jpg jpeg gif png webp)
+  end
+
+  version :thumbnail! do
+    process resize_to_fill: [640, 480]
   end
 
   # Override the filename of the uploaded files:

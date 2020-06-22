@@ -69,15 +69,14 @@ module ApplicationHelper
 
 		unless highlight
 			t.map! do |x|
-				%[<a href="tags/#{x}" class="#{css_class}" data-content="#{x}">#{x}</a>]
+				%[<a href="#{tag_path(x)}" class="#{css_class}" data-content="#{x}"></a>]
 			end
 		else
 			t.map! do |x|
 				v = %[<a href="#{x}" class="#{css_class}" data-content="#{x}">#{x}</a>]
 
 				if x == highlight
-					v.prepend('<strong>')
-					v << '</strong>'
+					v.prepend('<strong>') << '</strong>'
 				end
 
 				v
@@ -87,10 +86,46 @@ module ApplicationHelper
 		t.empty? ? '' : %[<span class="no-user-select">#{str} #{t.join(', ')}</span>]
 	end
 
-	# TODO:
-	# def guest_user_language_prefs
-	# 	if current_user.is_a?(GuestUser)
-	# 		button_to "EN", class:"dropdown-item"
-	# 	end
-	# end
+	def product_image(product)
+		if product.thumbnail.thumbnail!.url
+			image_tag product.thumbnail.thumbnail!.url, class: 'card-img-top'
+
+		elsif product.thumbnail.url
+			image_tag product.thumbnail.url, class: 'card-img-top'
+
+		elsif product.main_image.thumbnail!.url
+			image_tag product.main_image.thumbnail!.url, class: 'card-img-top'
+
+		elsif product.main_image.url
+			image_tag product.main_image.url, class: 'card-img-top'
+
+		else
+			%Q[<div class="no-img-label">No Preview Available!</div>].html_safe
+		end
+	end
+
+	def convert_emoji_to_html(str)
+		%[&#x#{str.force_encoding(Encoding::UTF_8).dump[3..-2].tap { |x| x.delete!('{}') }};]
+	end
+
+	def print_clock_emoji(n)
+		p_c = "\xF0\x9F\x95\x8F"
+		clocks = n.times.map { convert_emoji_to_html(p_c.next!.dup) }
+		clocks[n - 1].html_safe
+	end
+
+	def rating_gen(n = 0)
+		<<~EOF
+			<div class="rating-wrapper-all">
+				<div class="rating-wrapper">
+					<div class="rating-div" style="width: #{n.*(100)./(5).round}%"></div>
+					#{image_tag 'stars.png', class: 'rating'}
+				</div>
+			</div>
+		EOF
+	end
+
+	def rs_tag(price)
+		"&#x20B9; #{price.to_i.to_s.reverse.gsub(/\d{1,3}/).to_a.join(?,).reverse}.#{price.to_s.split(?.)[1]}".html_safe
+	end
 end

@@ -1,29 +1,132 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Line Items</h1>
+<center><h2>Your Cart</h2></center>
+
+<p id="notice"><%= notice %></p>
+<h1>Products</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Cart</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Features</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @line_items.each do |line_item| %>
-      <tr>
-        <td><%= line_item.product_id %></td>
-        <td><%= line_item.cart_id %></td>
-        <td><%= link_to 'Show', line_item %></td>
-        <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
-        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @line_items.each do |product| %>
+			<tr>
+				<td><%= product.user_id %></td>
+				<td><%= product.product_id %></td>
+				<td><%= link_to 'Show', product %></td>
+				<td><%= link_to 'Edit', edit_product_path(product) %></td>
+				<td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
-<br>
+<div id="item-thumbnails">
+	<div class="row">
+		<div class="col-md-6 col-sm-12 col-lg-4">
+			<% @user_items.each.with_index do |x, i| %>
+				<div class= "shadow-sm-hover">
+					<div class="card mb-3 rounded">
+						<%= link_to x[0] do %>
+							<div class="img-hover-effect">
+								<div class="img-hover-label">
+									<i class="fas fa-info-circle"></i>
+									More Info
+								</div>
 
-<%= link_to 'New Line Item', new_line_item_path %>
+								<%= product_image(x[0]) %>
+							</div>
+						<% end %>
+
+						<div class="card-body mb-1">
+							<h5 class="card-title"><%= x[0].title %></h5>
+							Quantity: <%= x[1][0] %>
+
+							<p class="card-text">
+								<%= format_tags(x[0], 'tags:').html_safe %>
+							</p>
+
+							<p>
+								Orders: <%= x[1][1].count %> orders placed.
+							</p>
+
+							<hr>
+							Order Details: <br>
+
+							<% x[1][1].each do |y| %>
+								<div class="mb-4">
+									<%= print_clock_emoji(y.updated_at.strftime('%H').to_i) %>
+									<%= y.updated_at.strftime("%d-%M-%Y") %>
+									<%= y.updated_at.strftime("%H:%m") %>
+									<br>
+									Req ID: <%= y.id %> | Qn: <%= y.quantity %>
+									<br>
+
+									<%= link_to y, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn-outline-primary-animated", "data-content": "Remove" do %>
+										<%= image_tag 'delete_cart_item.svg', width: '24px' %>
+									<% end %>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+		<div class="col-md-2 col-lg-4 col-sm-0">
+		</div>
+
+		<div class="col-md-4 col-lg-4 col-sm-12">
+			100% Purchase Protection
+			<div class="card">
+				<div class="card-body">
+					Subtotal: 2 items<br>
+					Total Price: Rs. <%=  %><br>
+					<%= link_to '', '#', class: 'btn-outline-success-animated', %s(data-content) => 'Proceed to Checkout' %>
+				</div>
+			</div>
+
+			<h4>Other items you might be interested in:</h4>
+			<% user_top_suggested_tags(3).each do |x| %>
+				<%= link_to x, class: 'link-no-style' do %>
+					<div class="card mb-3">
+						<div class="card-body">
+							<div class="img-hover-effect">
+								<div class="img-hover-label">
+									<i class="fas fa-info-circle"></i>
+									More Info
+								</div>
+
+								<% if x.thumbnail.url %>
+									<%= image_tag x.thumbnail.thumbnail!.url, class: 'card-img-top' %>
+								<% else %>
+									<div class="no-img-label">No Preview Available!</div>
+								<% end %>
+							</div>
+
+							<div style="font-weight: 1000 ; font-size: 20px"><%= x.title %></div>
+							Price: <%= x.price %>
+							<%= x %>
+							<div class="rating-wrapper-all">
+								<div class="rating-wrapper">
+									<div class="rating-div"></div>
+									<%= image_tag 'stars.png', class: 'rating' %>
+								</div>
+
+								<span class="ratings-label">134</span>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

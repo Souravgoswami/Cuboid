@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Products</h1>
 
 <table>
@@ -109,7 +108,7 @@
 								</div>
 
 								<% if x.thumbnail.url %>
-									<%= image_tag x.thumbnail.url, class: 'card-img-top' %>
+									<%= image_tag x.thumbnail.thumbnail!.url, class: 'card-img-top' %>
 								<% else %>
 									<div class="no-img-label">No Preview Available!</div>
 								<% end %>
@@ -117,14 +116,25 @@
 						<% end %>
 
 						<div class="card-body">
-							<h5 class="card-title"><%= x.title %></h5>
-							<p class="card-text"><%= x.description.to_s %></p>
+							<h3 class="card-title"><%= x.title %></h3>
+							<h5 class="card-title">Price: Rs. <%= x.price %></h5>
+							<h6 class="card-text"><%= x.description.to_s %></h6>
+
 							<p class="card-text">
 								<%= format_tags(x, 'tags:').html_safe %>
 							</p>
-							<a href="#" class="btn-outline-primary-animated" data-content="Add to Cart"></a>
-							<a href="#" class="btn-outline-success-animated" data-content="Checkout"></a>
-							<a href="#" class="btn-outline-warning-animated" data-content="Buy Later"></a>
+
+							<%= link_to product_add_to_line_items_path(x), remote: true, method: :patch, class: 'btn-outline-blue-animated', 'data-content': 'Add to Cart' do %>
+								<%= image_tag 'cart-button.svg', width: '24px' %>
+							<% end %>
+
+							<%= link_to product_checkout_path(x), method: :get, class: 'btn-outline-pink-animated', 'data-content': 'Buy Now' do %>
+								<%= image_tag 'purchase.svg', width: '24px' %>
+							<% end %>
+
+							<%= link_to product_add_to_wishlist_path(x), remote: true, method: :patch, class: "btn-outline-warning-animated", 'data-content': "Buy Later" do %>
+								<%= image_tag 'wishlist.svg', width: '24px' %>
+							<% end %>
 						</div>
 					</div>
 				</div>
