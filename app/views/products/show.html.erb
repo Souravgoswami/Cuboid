@@ -34,10 +34,10 @@
 		<hr>
 
 		<% if @product.price == @product.price %>
-			Price: Rs. <%= @product.price %>
+			Price: <%= rs_tag(@product.price) %>
 		<% elsif @product.price < @product.price %>
-			MRP. Rs. <strike><%= @product.price %></strike><br>
-			Price: Rs. <%= @product.price %>
+			MRP. <strike><%= rs_tag(@product.price) %></strike><br>
+			Price: <%= rs_tag(@product.price) %>
 		<% end %>
 
 		<br>

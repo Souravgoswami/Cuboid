@@ -9,9 +9,14 @@
 			<div class="card overflow-hide">
 				<div class="card-body">
 					<form class="form-group">
+						<div class="mt-4">
+							<h2>Checkout</h2>
+							Pay <%= rs_tag(@product.price) %>
+						</div>
+
 						<div class="swap-flip">
 							<div class="mt-4">
-								Type <br>
+								Card Type <br>
 
 								<select class="form-control">
 									<option>Visa</option>

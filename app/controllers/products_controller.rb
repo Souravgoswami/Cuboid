@@ -27,6 +27,13 @@ class ProductsController < ApplicationController
 		@ratings_avg = @ratings.map(&:rating).sum / @n_ratings
 	end
 
+	def checkout_all
+		@line_items = current_user.line_items.keys
+		@products = @line_items.to_a
+		@avg_ratings = @products.map(&:reviews).map { |x| r = x.map(&:rating).sum / x.length }
+		@total_price = @products.map(&:price).sum
+	end
+
 	# PATCH /products/1
 	def add_to_line_items
 		if current_user.is_a?(GuestUser)
@@ -109,6 +116,17 @@ class ProductsController < ApplicationController
 				format.html { render :edit }
 				format.json { render json: @product.errors, status: :unprocessable_entity }
 			end
+		end
+	end
+
+	# GET /products/search
+	def search
+		@search_term = params[:query].to_s
+		if @search_term.empty?
+		else
+			@results = Product.where('lower(title) like ?', "%#{@search_term}%")
+			@count = @results.count
+			@paginated = @results.page(params[:page]).per(6)
 		end
 	end
 

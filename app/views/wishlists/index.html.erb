@@ -6,6 +6,21 @@
 			<% @wishlists.each.with_index do |x, i| %>
 				<div class="card">
 					<div class="card-body">
+						<%= link_to x.product do %>
+							<div class="img-hover-effect">
+								<div class="img-hover-label">
+									<i class="fas fa-info-circle"></i>
+									More Info
+								</div>
+
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.thumbnail!.url, class: 'card-img-top' %>
+								<% else %>
+									<div class="no-img-label">No Preview Available!</div>
+								<% end %>
+							</div>
+						<% end %>
+
 						<h3 class="card-title"><%= x.product.title %></h3>
 						<h5 class="card-title">Price: <%= rs_tag(x.product.price) %></h5>
 						<h6 class="card-text"><%= x.product.description.to_s %></h6>

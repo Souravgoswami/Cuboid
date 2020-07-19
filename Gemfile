@@ -58,3 +58,6 @@ gem "friendly_id", "~> 5.3"
 gem "mini_magick", "~> 4.10"
 
 gem "petergate", "~> 2.0"
+
+gem "redcarpet", "~> 3.5"
+gem "coderay", "~> 1.1"

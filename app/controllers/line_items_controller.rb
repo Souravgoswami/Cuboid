@@ -20,6 +20,10 @@ class LineItemsController < ApplicationController
 	def show
 	end
 
+	def update_quantity
+		# byebug
+	end
+
 	# GET /line_items/new
 	def new
 		@line_item = LineItem.new

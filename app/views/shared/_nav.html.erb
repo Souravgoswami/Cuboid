@@ -38,23 +38,21 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<form class="form-inline ml-auto">
+		<%= form_tag products_search_path, { method: 'get', class: 'form-inline ml-auto' } do %>
 			<div class="input-group">
-				<input type="text" id="search" class="form-control input-sm" placeholder="Looking for something?">
+				<%= text_field_tag :query, params[:query], class: 'form-control input-sm', placeholder: 'Search Products' %>
 				<div class="input-group-append">
-					<button class="btn btn-light btn-sm" type="submit">
-						<i class="fas fa-search"></i>
-					</button>
+					<%= submit_tag 'Search', name: nil, class: 'btn btn-light btn-sm' %>
 				</div>
 			</div>
-		</form>
+		<% end %>
 
 		<ul class="nav navbar-nav ml-auto">
 			<li class="nav-item" role="button" data-toggle="tooltip" title="Your Wishlist" data-placement="bottom">
-				<a href="#" class="hover-line nav-link">
+				<%= link_to wishlists_path, class: "hover-line nav-link" do %>
 					<%= image_tag "wishlist.svg", width: "18px" %>
 					Wishlist
-				</a>
+				<% end %>
 			</li>
 
 			<li class="nav-item"  data-toggle="tooltip" title="Your Cart" data-placement="bottom">
@@ -109,10 +107,16 @@
 				</a>
 
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 4</a></li>
+					<% items('computer').each do |x| %>
+						<li role="presentation" class="dropdown-header">
+							<%= link_to x.product do %>
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.url, width: '16px' %>
+								<% end %>
+								<%= x.product.title %>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
 			</li>
 
@@ -123,10 +127,16 @@
 				</a>
 
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 2-1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 2-2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 2-3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 2-4</a></li>
+					<% items('laptops').each do |x| %>
+						<li role="presentation" class="dropdown-header">
+							<%= link_to x.product do %>
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.url, width: '16px' %>
+								<% end %>
+								<%= x.product.title %>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
 			</li>
 
@@ -137,10 +147,17 @@
 				</a>
 
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 3-1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 3-2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 3-3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 3-4</a></li>
+					<% items('sbc').each do |x| %>
+						<li role="presentation" class="dropdown-header">
+							<%= link_to x.product do %>
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.url, width: '16px' %>
+								<% end %>
+
+								<%= x.product.title %>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
 			</li>
 
@@ -151,10 +168,17 @@
 				</a>
 
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 4-1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 4-2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 4-3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 4-4</a></li>
+					<% items('ram').each do |x| %>
+						<li role="presentation" class="dropdown-header">
+							<%= link_to x.product do %>
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.url, width: '16px' %>
+								<% end %>
+
+								<%= x.product.title %>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
 			</li>
 
@@ -165,10 +189,17 @@
 				</a>
 
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu5">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 5-1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 5-2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 5-3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 5-4</a></li>
+					<% items('gpu').each do |x| %>
+						<li role="presentation" class="dropdown-header">
+							<%= link_to x.product do %>
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.url, width: '16px' %>
+								<% end %>
+
+								<%= x.product.title %>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
 			</li>
 
@@ -179,24 +210,17 @@
 				</a>
 
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu6">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 6-1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 6-2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 6-3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 6-4</a></li>
-				</ul>
-			</li>
+					<% items('processors').each do |x| %>
+						<li role="presentation" class="dropdown-header">
+							<%= link_to x.product do %>
+								<% if x.product.thumbnail.url %>
+									<%= image_tag x.product.thumbnail.url %>
+								<% end %>
 
-			<li class="dropdown">
-				<a class="dropdown-toggle" type="button" id="dropdownMenu7" data-toggle="dropdown">
-					Others
-					<span class="caret"></span>
-				</a>
-
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu7">
-					<li role="presentation" class="dropdown-header"><a href="#">Item 7-1</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 7-2</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 7-3</a></li>
-					<li role="presentation" class="dropdown-header"><a href="#">Item 7-4</a></li>
+								<%= x.product.title %>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
 			</li>
 		</ul>

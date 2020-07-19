@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_214604) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_wishlists_on_product_id", unique: true
+    t.index ["product_id"], name: "index_wishlists_on_product_id"
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 

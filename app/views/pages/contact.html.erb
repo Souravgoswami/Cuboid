@@ -1,12 +1,11 @@
-
 <%= stylesheet_link_tag 'contact_page', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <!-- Hero -->
 <section class="hero">
-	<%= image_tag "contact/bg.jpg", class: "img-fluid", alt: "", id: "background" %>
+	<%= image_tag "contact/bg.jpg", class: "img-front-bg", alt: "", id: "background" %>
 
 	<div class="hero-text p-5">
-		<h1>Cuboid</h1>
+		<%= image_tag 'favicons/favicon.png', class: 'hue-rotate' %>
 	</div>
 </section>
 
@@ -259,16 +258,16 @@
 		<div class="slider-item active-slider-item">
 			<div class="row py-2">
 				<div class="col-md-8">
-					<h2 class="dark-title">This is what Trisha <span>Thinks</span></h2>
+					<h2 class="dark-title">This is what John <span>Thinks</span></h2>
 					<p>
 						<i class="fa fa-quote-left mr-2"></i>
-						Nulla non lectus sed nisl molestie malesuada. Vivamus ac leo pretium faucibus. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Etiam dictum tincidunt diam. Praesent vitae arcu tempor neque lacinia pretium. Suspendisse nisl.
+							I buy everything from Cuboid, it's like my everyday shop!
 						<i class="fa fa-quote-right ml-2"></i>
 					</p>
 				</div>
 
 				<div class="col-md-4">
-					<img_tag "contacts/p1.jpg", alt: "", class: "img-fluid rounded-circle img-thumb">
+					<%= image_tag "contact/john.jpg", alt: "", class: "img-fluid rounded-circle img-thumb" %>
 				</div>
 			</div>
 		</div>
@@ -276,7 +275,7 @@
 		<div class="slider-item">
 			<div class="row py-2">
 				<div class="col-md-8">
-						<h2 class="dark-title">This is what Paul <span>Thinks</span></h2>
+						<h2 class="dark-title">This is what Angela <span>Thinks</span></h2>
 					<p>
 						<i class="fa fa-quote-left mr-2"></i>
 						Nulla non lectus sed nisl molestie malesuada. Vivamus ac leo pretium faucibus. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Etiam dictum tincidunt diam. Praesent vitae arcu tempor neque lacinia pretium. Suspendisse nisl.
@@ -285,7 +284,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<img alt="" src="assets/img/persons/p2.jpg" class="img-fluid rounded-circle img-thumb">
+					<%= image_tag "contact/angela.jpg", alt: "", class: "img-fluid rounded-circle img-thumb" %>
 				</div>
 			</div>
 		</div>
@@ -293,7 +292,7 @@
 		<div class="slider-item">
 			<div class="row py-2">
 				<div class="col-md-8">
-						<h2 class="dark-title">This is what Ava <span>Thinks</span></h2>
+						<h2 class="dark-title">This is what Boris <span>Thinks</span></h2>
 					<p>
 						<i class="fa fa-quote-left mr-2"></i>
 						Nulla non lectus sed nisl molestie malesuada. Vivamus ac leo pretium faucibus. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Etiam dictum tincidunt diam. Praesent vitae arcu tempor neque lacinia pretium. Suspendisse nisl.
@@ -302,7 +301,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<img alt="" src="assets/img/persons/p3.jpg" class="img-fluid rounded-circle img-thumb">
+					<%= image_tag "contact/boris.jpg", alt: "", class: "img-fluid rounded-circle img-thumb" %>
 				</div>
 			</div>
 		</div>
@@ -317,15 +316,19 @@
 			<div class="col-md-4">
 				<article class="shadow p-2">
 					<div class="team-social-links py-2">
-						<a href="#" class=""><i class="fa fa-facebook"></i></a>
-						<a href="#" class=""><i class="fa fa-twitter"></i></a>
-						<a href="#" class=""><i class="fa fa-youtube"></i></a>
+						<a href="#" class=""><i class="fab fa-twitter"></i></a>
+						<a href="#" class=""><i class="fab fa-github"></i></a>
+						<a href="#" class=""><i class="fab fa-linkedin"></i></a>
 					</div>
 
-					<img class="img-fluid team-img" alt="" src="assets/img/persons/p01.jpg">
+					<%= image_tag 'devs/sourav.jpg', class: 'img-fluid' %>
 					<div class="team-content p-3">
-						<h3>John Doe</h3>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+						<h3>Sourav Goswami</h3>
+						<p>
+							A ruby and ruby on rails developer.
+							He is responsible for the back-end coding.
+						</p>
+
 						<a class="btn btn-info" href="#">
 							<i class="mr-4 fa fa-info"></i>
 							Learn More
@@ -338,42 +341,50 @@
 			<div class="col-md-4">
 				<article class="shadow p-2">
 					<div class="team-social-links py-2">
-						<a href="#" class=""><i class="fa fa-facebook"></i></a>
-						<a href="#" class=""><i class="fa fa-twitter"></i></a>
-						<a href="#" class=""><i class="fa fa-youtube"></i></a>
+						<a href="#" class=""><i class="fab fa-twitter"></i></a>
+						<a href="#" class=""><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class=""><i class="fab fa-instagram"></i></a>
+						<a href="#" class=""><i class="fab fa-github"></i></a>
 					</div>
 
-					<img class="img-fluid team-img" alt="" src="assets/img/persons/p02.jpg">
+					<%= image_tag 'devs/shail.jpg', class: 'img-fluid' %>
 					<div class="team-content p-3">
-						<h3>John Doe</h3>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+						<h3>Shail Singh</h3>
+						<p>
+							He is a front-end developer.
+							A front-end dev with lots of experience.
+							He is responsible for the front-end coding.
+						</p>
+
 						<a class="btn btn-info" href="#">
 							<i class="mr-4 fa fa-info"></i>
 							Learn More
 						</a>
 					</div>
-
 				</article>
 			</div>
 
 			<div class="col-md-4">
 				<article class="shadow p-2">
 					<div class="team-social-links py-2">
-						<a href="#" class=""><i class="fa fa-facebook"></i></a>
-						<a href="#" class=""><i class="fa fa-twitter"></i></a>
-						<a href="#" class=""><i class="fa fa-youtube"></i></a>
+						<a href="#" class=""><i class="fab fa-twitter"></i></a>
+						<a href="#" class=""><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class=""><i class="fab fa-instagram"></i></a>
+						<a href="#" class=""><i class="fab fa-github"></i></a>
+						<a href="#" class=""><i class="fab fa-youtube"></i></a>
 					</div>
 
-					<img class="img-fluid team-img" alt="" src="assets/img/persons/p03.jpg">
+					<%= image_tag 'devs/subrata.jpg', class: 'img-fluid' %>
 					<div class="team-content p-3">
-						<h3>John Doe</h3>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+						<h3>Subrata Sarkar</h3>
+						<p>
+							He manages the hosting and other managerial stuff.
+						</p>
 						<a class="btn btn-info" href="#">
 							<i class="mr-4 fa fa-info"></i>
 							Learn More
 						</a>
 					</div>
-
 				</article>
 			</div>
 		</div>

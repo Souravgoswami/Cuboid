@@ -20,11 +20,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 1.25rem ;
 }
 
-/* Hero */
-.hero {
-	/* position: relative ; */
-}
-
 .hero-text {
 	position: absolute ;
 	top: 50% ;
@@ -34,10 +29,18 @@ h1, h2, h3, h4, h5, h6 {
 	border: 1px solid #000 ;
 }
 
-.img-fluid {
+.img-front-bg {
 	width: 100vw ;
 	height: 80vh ;
-	background-size: cover ;
+	// object-fit: cover ;
+	background-size: cover
+
+}
+
+.img-fluid {
+	height: 410px ;
+	width: 410px ;
+	object-fit: cover ;
 }
 
 /* Call to action */
@@ -193,4 +196,20 @@ footer input[type="text"]:hover, footer textarea:hover {
 
 #header1 {
 	transition: all 0.2s ease ;
+}
+
+.hue-rotate {
+	animation: hue-rotate 2s linear infinite ;
+}
+
+@keyframes hue-rotate {
+	0% {
+		filter: hue-rotate(0deg) ;
+		-webkit-filter: hue-rotate(0deg) ;
+	}
+
+	100% {
+		filter: hue-rotate(360deg) ;
+		-webkit-filter: hue-rotate(360deg) ;
+	}
 }

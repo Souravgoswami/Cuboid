@@ -1,13 +1,14 @@
 User.create!(email: 'a@a.a', password: 'aaaaaa', name: 'a')
 
-100.times do |x|
+3.times do |x|
 	fname = "User#{x + 1}"
 	lname = rand(4..8).times.map { rand(97..122).chr }.join
 
 	u = User.create!(
 		email: "#{fname.downcase}@#{rand(3..6).times.map { rand(97..122).chr }.join}.#{%w(com org net io me).sample}",
 		password: x.to_s.*(6)[0..5],
-		name: "#{fname} #{lname}"
+		name: "#{fname} #{lname}",
+		role: 'site_admin'
 	)
 
 	p = Product.create!(

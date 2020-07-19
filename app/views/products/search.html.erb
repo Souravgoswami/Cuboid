@@ -1,0 +1,72 @@
+<% unless @search_term.empty? %>
+	<h2 class="centrify"><%= @count %> result<%= @count == 1 ? '' : 's' %> found for <%= @search_term %></h2>
+
+	<div class="row">
+		<% @paginated.each do |x| %>
+			<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4">
+				<div class="card">
+					<%= link_to x do %>
+						<div class="img-hover-effect">
+							<div class="img-hover-label">
+								<i class="fas fa-info-circle"></i>
+								More Info
+							</div>
+
+							<% if x.thumbnail.url %>
+								<%= image_tag x.thumbnail.thumbnail!.url, class: 'card-img-top' %>
+							<% else %>
+								<div class="no-img-label">No Preview Available!</div>
+							<% end %>
+						</div>
+					<% end %>
+
+					<div class="card-body">
+						<h3 class="card-title"><%= x.title %></h3>
+						<h5 class="card-title">Price: <%= rs_tag(x.price) %></h5>
+						<h6 class="card-text"><%= x.description.to_s %></h6>
+
+						<p class="card-text">
+							<%= format_tags(x, 'tags:').html_safe %>
+						</p>
+
+						<%= link_to product_add_to_line_items_path(x), remote: true, method: :patch, class: 'btn-outline-blue-animated', 'data-content': 'Add to Cart' do %>
+							<%= image_tag('cart-button.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
+						<% end %>
+
+						<%= link_to product_checkout_path(x), method: :get, class: 'btn-outline-pink-animated', 'data-content': 'Buy Now' do %>
+							<%= image_tag('purchase.svg', width: '24px') + "&nbsp;&nbsp".html_safe  %>
+						<% end %>
+
+						<%= link_to product_add_to_wishlist_path(x), remote: true, method: :patch, class: "btn-outline-warning-animated", 'data-content': "Buy Later" do %>
+							<%= image_tag('wishlist.svg', width: '24px') + "&nbsp;&nbsp".html_safe %>
+						<% end %>
+
+						<%#= Admin Actions %>
+						<%if logged_in?(:site_admin) %>
+							<hr>
+
+							<div class="admin-section">
+								<%= image_tag 'diamond.svg', height: '40px' %>
+								<span class="centrify-v height-36">Admin Actions</span>
+							</div>
+
+							<br>
+
+							<%= link_to edit_product_path(x), class: 'btn-outline-pink-animated', 'data-content': 'Edit' do %>
+								<%= image_tag('pencil.svg', width: '24px') + '&nbsp;&nbsp;'.html_safe %>
+							<% end %>
+
+							<%= link_to x, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-outline-emerald-animated', 'data-content': 'Trashify' do %>
+								<%= image_tag('trash.svg', width: '24px') + '&nbsp;&nbsp;'.html_safe %>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="centrify">
+		<%= paginate @paginated, class: 'pagination' %>
+	</div>
+<% end %>

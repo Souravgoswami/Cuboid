@@ -125,7 +125,11 @@ module ApplicationHelper
 		EOF
 	end
 
+	def items(title)
+		Tag.where(title: title).shuffle.first(5)
+	end
+
 	def rs_tag(price)
-		"&#x20B9; #{price.to_i.to_s.reverse.gsub(/\d{1,3}/).to_a.join(?,).reverse}.#{price.to_s.split(?.)[1]}".html_safe
+		"&#x20B9; #{price.to_i.to_s.reverse.gsub(/\d{1,3}/).to_a.join(?,).reverse}.#{price.to_f.round(2).to_s.split(?.)[1].then { |x| x.length == 1 ? "#{x}0" : x }}".html_safe
 	end
 end
